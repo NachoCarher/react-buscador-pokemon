@@ -5,12 +5,21 @@ import { usePokemon } from './hooks/usePokemon.js'
 function App() {
   const { pokemon } = usePokemon()
 
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    const { query } = event.target.elements
+
+    console.log(query.value)
+  }
+
+  // crear custom hook contador para llevar la cuenta del numero busquedas realizadas
+
   return (
     <div className='App'>
       <header>
         <h1>Buscador Pokémon</h1>
-        <form className='form'>
-          <input type='text' placeholder='Water, fire, dragon..' />
+        <form className='form' onSubmit={handleSubmit}>
+          <input required name='query' type='text' placeholder='Water, fire, dragon..' />
           <button type='submit'>Search</button>
         </form>
       </header>
