@@ -2,9 +2,22 @@ import './App.css'
 import resType from './mocks/resultsTypes.json'
 import { Pokemon } from './components/Pokemon.jsx'
 
-function App() {
+// Custom hook
+export function usePokemon () {
   const pokemonList = resType.pokemon
   
+  // Good practise if the API changes in the future
+  const mappedPokemon = pokemonList.map((pokemon, index) => ({
+    name: pokemon.pokemon.name,
+    url: pokemon.pokemon.url
+  }))
+
+  return { pokemon : mappedPokemon }
+}
+
+function App() {
+  const { pokemon : mappedPokemon } = usePokemon()
+
   return (
     <div className='App'>
       <header>
@@ -16,7 +29,7 @@ function App() {
       </header>
 
       <main>
-        <Pokemon typeResult={pokemonList} />
+        <Pokemon typeResult={mappedPokemon} />
       </main>
     </div>
   )
