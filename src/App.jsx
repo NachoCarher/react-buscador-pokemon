@@ -3,8 +3,25 @@ import resType from './mocks/resultsTypes.json'
 
 function App() {
   const pokemonList = resType.pokemon
-  // existe el tipo
   const typeExists = resType.name != null
+
+  const renderPokemonList = () => {
+    if (typeExists) {
+      return (
+        <ul>
+          {
+            pokemonList.map((pokemon, index) => (
+              <li key={index}>{pokemon.pokemon.name}</li>
+            ))
+          }
+        </ul>
+      )
+    } else {
+      return (
+        <p>Type doesn't exist</p>
+      )
+    }
+  }
 
   return (
     <div className='App'>
@@ -17,23 +34,7 @@ function App() {
       </header>
 
       <main>
-        {
-          typeExists ? (
-            <div className='pokemon'>
-
-              <h3>{resType.name}</h3>
-              <ul>
-                {
-                  pokemonList.map((pokemon, index) => (
-                    <li key={index}>{pokemon.pokemon.name}</li>
-                  ))
-                }
-              </ul>
-            </div>
-          ) : (
-            <p>The type does not exist</p>
-          )
-        }
+        {renderPokemonList()}
       </main>
     </div>
   )
