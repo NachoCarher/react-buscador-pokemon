@@ -10,3 +10,4 @@ Buscador de pokemon con React, utilizando la API de [PokeAPI](https://pokeapi.co
 - La búsqueda debe ser por nombre.
 - Al buscar el pokemon, se debe mostrar la imagen del pokemon, su nombre y su tipo.
 - Se debe mostrar un mensaje de error si el pokemon no existe.
+- **Opcional:** Buscar listas de pokemon por tipo. (Enlace a este buscador desde la página principal)
