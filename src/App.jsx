@@ -1,28 +1,10 @@
 import './App.css'
 import resType from './mocks/resultsTypes.json'
+import { Pokemon } from './components/Pokemon.jsx'
 
 function App() {
   const pokemonList = resType.pokemon
-  const typeExists = resType.name != null
-
-  const renderPokemonList = () => {
-    if (typeExists) {
-      return (
-        <ul>
-          {
-            pokemonList.map((pokemon, index) => (
-              <li key={index}>{pokemon.pokemon.name}</li>
-            ))
-          }
-        </ul>
-      )
-    } else {
-      return (
-        <p>Type doesn't exist</p>
-      )
-    }
-  }
-
+  
   return (
     <div className='App'>
       <header>
@@ -34,7 +16,7 @@ function App() {
       </header>
 
       <main>
-        {renderPokemonList()}
+        <Pokemon typeResult={pokemonList} />
       </main>
     </div>
   )
