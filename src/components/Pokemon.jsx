@@ -1,10 +1,13 @@
 export function ListOfPokemon ({ pokemonList }) {
     return (
-      <ul className="listaPokemon">
+      <ul className="pokemonList">
         {
           pokemonList.map((pokemon, index) => (
             <li key={index} className="pokemon">
-                <h2>{pokemon.name}</h2>
+                <div className="pokemon__title">
+                    <h2 className="pokedex-number">{pokemon.pokedexNumber}</h2>
+                    <h2 className="pokemon-name">{pokemon.name}</h2>
+                </div>
                 <img src={pokemon.sprite} alt="pokemon sprite" />
             </li>
           ))
