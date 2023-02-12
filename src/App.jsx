@@ -5,7 +5,7 @@ import { useState } from 'react'
 
 function App() {
   const [search, setSearch] = useState('')
-  const { pokemon, getPokemon } = usePokemon({ search })
+  const { pokemon, getPokemon, error, loading} = usePokemon({ search })
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -24,10 +24,11 @@ function App() {
           <input name='query' type='text' placeholder='Water, fire, dragon..' />
           <button type='submit'>Search</button>
         </form>
+        {error && <p style={{ color: 'red' }}>{error}</p>}
       </header>
 
       <main>
-        <Pokemon typeResult={pokemon} />
+        {loading ? <p>Loading...</p> : <Pokemon typeResult={pokemon} />}
       </main>
     </div>
   )
