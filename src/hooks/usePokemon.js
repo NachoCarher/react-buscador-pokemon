@@ -1,14 +1,27 @@
 import resType from '../mocks/resultsTypes.json'
+import errorResult from '../mocks/errorResult.json'
+import { useState } from 'react'
 
-// Custom hook
-export function usePokemon () {
-    const pokemonList = resType.pokemon
-    
-    // Good practise if the API changes in the future
-    const mappedPokemon = pokemonList.map((pokemon, index) => ({
+export function usePokemon ({ search }) {
+    const [pokemonList, setPokemonList] = useState([])
+
+    const getPokemon = () => {
+        if (search) {
+            fetch(`https://pokeapi.co/api/v2/type/${search}`)
+                .then((res) => res.json())
+                .then((json) => {
+                    setPokemonList(json.pokemon)
+                })
+        }
+        else {
+            setPokemonList([])
+        }
+    }
+
+    const mappedPokemon = pokemonList.map((pokemon) => ({
       name: pokemon.pokemon.name,
       url: pokemon.pokemon.url
     }))
 
-    return { pokemon : mappedPokemon }
+    return { pokemon : mappedPokemon, getPokemon }
 }

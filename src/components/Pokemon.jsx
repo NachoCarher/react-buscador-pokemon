@@ -15,7 +15,7 @@ export function ListOfPokemon ({ pokemonList }) {
 
 export function NoTypeResults () {
   return (
-    <p>Type doesn't exist</p>
+    <p>No results</p>
   )
 }
 
