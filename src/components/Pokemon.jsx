@@ -5,7 +5,7 @@ export function ListOfPokemon ({ pokemonList }) {
           pokemonList.map((pokemon, index) => (
             <li key={index} className="pokemon">
                 <h2>{pokemon.name}</h2>
-                <p>{pokemon.url}</p>
+                <img src={pokemon.sprite} alt="pokemon sprite" />
             </li>
           ))
         }

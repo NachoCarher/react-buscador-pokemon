@@ -6,11 +6,13 @@ export const searchPokemon = async ({ search }) => {
         const json = await response.json()
 
         const pokemonList = json.pokemon
+        const spritesRepository = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/`
 
         return pokemonList.map((pokemon) => ({
             name: pokemon.pokemon.name,
-            url: pokemon.pokemon.url
-          }))
+            url: pokemon.pokemon.url,
+            pokedexNumber: pokemon.pokemon.url.split('/')[6],
+            sprite: `${spritesRepository}${pokemon.pokemon.url.split('/')[6]}.png`,          }))
     } catch (error) {
         throw new Error('Error searching pokemon by type')
     }
