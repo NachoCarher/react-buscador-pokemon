@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { searchPokemon } from '../services/pokemon'
 
 export function usePokemon ({ search }) {
@@ -6,6 +6,10 @@ export function usePokemon ({ search }) {
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(false)
     
+    useEffect(() => {
+        getPokemon()
+    }, [search])
+
     const getPokemon = async () => {
         try {
             setLoading(true)
@@ -20,5 +24,5 @@ export function usePokemon ({ search }) {
         }
     }
 
-    return { pokemon, getPokemon, error, loading }
+    return { pokemon, error, loading }
 }

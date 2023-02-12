@@ -5,13 +5,12 @@ import { useState } from 'react'
 
 function App() {
   const [search, setSearch] = useState('')
-  const { pokemon, getPokemon, error, loading} = usePokemon({ search })
+  const { pokemon, error, loading} = usePokemon({ search })
 
   const handleSubmit = (event) => {
     event.preventDefault()
     const { query } = event.target.elements
     setSearch(query.value)
-    getPokemon()
   }
 
   return (
