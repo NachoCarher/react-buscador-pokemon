@@ -1,13 +1,15 @@
-# Buscador pokemon con React
+# Pokemon finder with React
 
-## Descripción
+## Description
 
-Buscador de pokemon con React, utilizando la API de [PokeAPI](https://pokeapi.co/).
+This project uses [PokeAPI](https://pokeapi.co/) to search for pokemon.
 
-## Requisitos
+The purpose of this project is to practice React using hooks, functional components and good practices.
 
-- Se necesita un input para buscar el pokemon. Y un botón para buscar.
-- La búsqueda debe ser por nombre.
-- Al buscar el pokemon, se debe mostrar la imagen del pokemon, su nombre y su tipo.
-- Se debe mostrar un mensaje de error si el pokemon no existe.
-- **Opcional:** Buscar listas de pokemon por tipo. (Enlace a este buscador desde la página principal)
+## Requirements
+
+- Input field to search for a pokemon and button to search.
+- The search must be by type.
+- When searching for a pokemon, the image of the pokemon, its name and its pokedex number must be displayed.
+- An error message must be displayed if type does not exist.
+- **Optional:** Search for pokemon by name. (Link to this search from the home page)
