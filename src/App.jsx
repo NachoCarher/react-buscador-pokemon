@@ -14,12 +14,10 @@ function App() {
     getPokemon()
   }
 
-  // crear custom hook contador para llevar la cuenta del numero busquedas realizadas
-
   return (
     <div className='App'>
       <header>
-        <h1>Buscador Pokémon</h1>
+        <h1>Pokemon finder</h1>
         <form className='form' onSubmit={handleSubmit}>
           <input name='query' type='text' placeholder='Water, fire, dragon..' />
           <button type='submit'>Search</button>
