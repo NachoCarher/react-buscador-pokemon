@@ -55,16 +55,18 @@ h1 {
     align-items: center;
 }
 
-.pokedex-number {
-    margin-right: 1rem;
-    background-color: #f5f5f5;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    color: #000;
+.pokemon__title h2:first-child {
+    margin-right: 0.5rem;
 }
 
 .pokemon-name {
     font-weight: 700;
     letter-spacing: 0.04rem;
     text-transform: capitalize;
+}
+
+@media screen and (max-width: 300px) {
+    form {
+        flex-direction: column;
+    }
 }
