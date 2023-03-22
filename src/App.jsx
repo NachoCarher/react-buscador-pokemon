@@ -2,11 +2,13 @@ import "./App.css";
 import { Pokemon } from "./components/Pokemon.jsx";
 import { usePokemon } from "./hooks/usePokemon.js";
 import { useState } from "react";
+import { SelectPokemonTypes } from "./components/SelectPokemonTypes.jsx";
 
 function App() {
   const [search, setSearch] = useState("");
   const [liveMode, setLiveMode] = useState(false);
   const { pokemon, error, loading } = usePokemon({ search, liveMode });
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -19,7 +21,7 @@ function App() {
       <header>
         <h1>Pokemon finder</h1>
         <form className="form" onSubmit={handleSubmit}>
-          <input name="query" type="text" placeholder="Water, fire, dragon.." />
+          <SelectPokemonTypes />
           <button type="submit">Search</button>
           <label className="live-mode" htmlFor="liveMode">
             Live mode:
