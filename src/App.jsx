@@ -5,13 +5,13 @@ import { useState } from "react";
 
 function App() {
   const [search, setSearch] = useState("");
-  const { pokemon, error, loading } = usePokemon({ search });
+  const [liveMode, setLiveMode] = useState(false);
+  const { pokemon, error, loading } = usePokemon({ search, liveMode });
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const { query } = event.target.elements;
-    query.value = query.value.toLowerCase();
-    setSearch(query.value);
+    setSearch(query.value.toLowerCase());
   };
 
   return (
@@ -21,6 +21,12 @@ function App() {
         <form className="form" onSubmit={handleSubmit}>
           <input name="query" type="text" placeholder="Water, fire, dragon.." />
           <button type="submit">Search</button>
+          <label className="live-mode" htmlFor="liveMode">
+            Live mode:
+            <button type="button" onClick={() => setLiveMode(!liveMode)}>
+              {liveMode ? "On" : "Off"}
+            </button>
+          </label>
         </form>
         {error && <p style={{ color: "red" }}>{error}</p>}
       </header>
